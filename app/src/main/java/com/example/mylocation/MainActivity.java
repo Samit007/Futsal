@@ -19,7 +19,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements TaskLoadedCallBac
 //                    }
 //                });
 
-        final Call<List<TraningCentre>> traningCentreApi = ApiManager.getInstance().getApiClient().getTraningCentre();
+        final Call<List<Hospital>> traningCentreApi = ApiManager.getInstance().getApiClient().getHospital();
         check = (Button)findViewById(R.id.btncheck);
 
         check.setOnClickListener(new View.OnClickListener() {
@@ -157,24 +156,28 @@ public class MainActivity extends AppCompatActivity implements TaskLoadedCallBac
     }
 
     private void fetchDataFromApi(){
-        final Call<List<TraningCentre>> traningCentreApi = ApiManager.getInstance().getApiClient().getTraningCentre();
+        final Call<List<Hospital>> traningCentreApi = ApiManager.getInstance().getApiClient().getHospital();
 
-        traningCentreApi.clone().enqueue(new Callback<List<TraningCentre>>() {
+        traningCentreApi.clone().enqueue(new Callback<List<Hospital>>() {
             @Override
-            public void onResponse(Call<List<TraningCentre>> call, Response<List<TraningCentre>> response) {
-                final List<TraningCentre> traningCentreList = response.body();
+            public void onResponse(Call<List<Hospital>> call, Response<List<Hospital>> response) {
+                final List<Hospital> hospitalList = response.body();
                 mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
                 mFusedLocationProviderClient.getLastLocation()
                         .addOnSuccessListener((Activity) context, new OnSuccessListener<Location>() {
                             @Override
                             public void onSuccess(Location location) {
                                 if(map!=null){
-                                    from = new MarkerOptions().position(new LatLng(location.getLatitude(),location.getLongitude()));
-                                    for(TraningCentre traningCentre : traningCentreList){
-                                        LatLng latLng = new LatLng(traningCentre.getlATITUDE(),traningCentre.getlONGITUDE());
+                                    if(location!=null){
+                                        from = new MarkerOptions().position(new LatLng(location.getLatitude(),location.getLongitude()));
+                                    }
+                                    for(Hospital hospital : hospitalList){
+                                        LatLng latLng = new LatLng(hospital.getlATITUDE(), hospital.getlONGITUDE());
                                         to = new MarkerOptions().position(latLng);
-                                        map.addMarker(new MarkerOptions().position(latLng).title(traningCentre.getnAME()));
-                                        new FetchURL(MainActivity.this).execute(getUrl(from.getPosition(), to.getPosition(), "driving"), "driving");
+                                        map.addMarker(new MarkerOptions().position(latLng).title(hospital.getnAME()));
+                                        if(location!=null){
+                                            new FetchURL(MainActivity.this).execute(getUrl(from.getPosition(), to.getPosition(), "driving"), "driving");
+                                        }
                                     }
                                 }else {
                                     Toast.makeText(MainActivity.this,"Map is Loading",Toast.LENGTH_SHORT).show();
@@ -184,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements TaskLoadedCallBac
             }
 
             @Override
-            public void onFailure(Call<List<TraningCentre>> call, Throwable t) {
+            public void onFailure(Call<List<Hospital>> call, Throwable t) {
                 Toast.makeText(MainActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
