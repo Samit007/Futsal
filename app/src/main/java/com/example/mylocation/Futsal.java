@@ -2,7 +2,7 @@ package com.example.mylocation;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-public class Hospital {
+public class Futsal {
 
     @SerializedName("ID")
     @Expose

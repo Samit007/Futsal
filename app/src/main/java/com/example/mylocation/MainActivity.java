@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements TaskLoadedCallBac
 //                    }
 //                });
 
-        final Call<List<Hospital>> traningCentreApi = ApiManager.getInstance().getApiClient().getHospital();
+        final Call<List<Futsal>> futsalApi = ApiManager.getInstance().getApiClient().getFutsal();
         check = (Button)findViewById(R.id.btncheck);
 
         check.setOnClickListener(new View.OnClickListener() {
@@ -156,12 +156,12 @@ public class MainActivity extends AppCompatActivity implements TaskLoadedCallBac
     }
 
     private void fetchDataFromApi(){
-        final Call<List<Hospital>> traningCentreApi = ApiManager.getInstance().getApiClient().getHospital();
+        final Call<List<Futsal>> futsalApi = ApiManager.getInstance().getApiClient().getFutsal();
 
-        traningCentreApi.clone().enqueue(new Callback<List<Hospital>>() {
+        futsalApi.clone().enqueue(new Callback<List<Futsal>>() {
             @Override
-            public void onResponse(Call<List<Hospital>> call, Response<List<Hospital>> response) {
-                final List<Hospital> hospitalList = response.body();
+            public void onResponse(Call<List<Futsal>> call, Response<List<Futsal>> response) {
+                final List<Futsal> futsalList = response.body();
                 mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
                 mFusedLocationProviderClient.getLastLocation()
                         .addOnSuccessListener((Activity) context, new OnSuccessListener<Location>() {
@@ -171,10 +171,10 @@ public class MainActivity extends AppCompatActivity implements TaskLoadedCallBac
                                     if(location!=null){
                                         from = new MarkerOptions().position(new LatLng(location.getLatitude(),location.getLongitude()));
                                     }
-                                    for(Hospital hospital : hospitalList){
-                                        LatLng latLng = new LatLng(hospital.getlATITUDE(), hospital.getlONGITUDE());
+                                    for(Futsal futsal : futsalList){
+                                        LatLng latLng = new LatLng(futsal.getlATITUDE(), futsal.getlONGITUDE());
                                         to = new MarkerOptions().position(latLng);
-                                        map.addMarker(new MarkerOptions().position(latLng).title(hospital.getnAME()));
+                                        map.addMarker(new MarkerOptions().position(latLng).title(futsal.getnAME()));
                                         if(location!=null){
                                             new FetchURL(MainActivity.this).execute(getUrl(from.getPosition(), to.getPosition(), "driving"), "driving");
                                         }
@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements TaskLoadedCallBac
             }
 
             @Override
-            public void onFailure(Call<List<Hospital>> call, Throwable t) {
+            public void onFailure(Call<List<Futsal>> call, Throwable t) {
                 Toast.makeText(MainActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
             }
         });

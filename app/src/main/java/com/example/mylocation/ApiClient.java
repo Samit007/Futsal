@@ -17,8 +17,8 @@ public interface ApiClient {
 //            @Query("employeeID") String empid,
 //            @Query("englishDate") String engdate
 
-    @GET("api/hospital")
-    Call<List<Hospital>> getHospital();
+    @GET("api/futsal")
+    Call<List<Futsal>> getFutsal();
 
 ////////////////////////////////////////////////////////////////////////
 //........................POST METHOD ..................................

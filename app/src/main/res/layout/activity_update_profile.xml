@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Signup"
+    android:background="@drawable/gradient"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="127dp"
+            android:layout_height="114dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="60dp"
+            android:src="@drawable/futsal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Your Profile"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"/>
+        <TextView
+            android:id="@+id/upusername"
+            android:layout_marginTop="20dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter user name"
+            android:imeOptions="actionNext"
+            android:maxLength="20"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:paddingLeft="7.0dip"
+            android:textSize="18sp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/uptname"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Full name"
+            android:imeOptions="actionNext"
+            android:maxLength="20"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:paddingLeft="7.0dip"
+            android:textSize="14sp" />
+
+
+        <EditText
+            android:id="@+id/uppassword"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Password Here"
+            android:imeOptions="actionNext"
+            android:maxLength="20"
+            android:inputType="textPassword"
+            android:textColor="#FFFFFF"
+            android:paddingLeft="7.0dip"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/upemail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter email"
+            android:imeOptions="actionNext"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:paddingLeft="7.0dip"
+            android:textSize="14sp" />
+        <EditText
+            android:id="@+id/upphone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter phone number"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="10"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:paddingLeft="7.0dip"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="7.5dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TableLayout
+                    android:layout_below="@+id/txt_message"
+                    android:id="@+id/item_cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#FFFFFF"
+                    app:layout_collapseMode="pin">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textColor="#E75E5C"
+                                android:textSize="14sp"
+                                android:gravity="center"
+                                android:text="U P D A T E"
+                                android:textStyle="bold"/>
+
+
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/up_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+                </TableLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+
+                android:layout_marginLeft="7.5dp"
+                android:layout_marginRight="15dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TableLayout
+                    android:id="@+id/user_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#FFFFFF"
+                    android:theme="@style/ThemeOverlay.AppCompat.Light"
+                    app:layout_collapseMode="pin">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textColor="#E75E5C"
+                                android:textSize="14sp"
+                                android:text="G E T   F U T S A L"
+                                android:gravity="center"
+                                android:textStyle="bold"/>
+
+
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/btshow"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </FrameLayout>
+
+                    </RelativeLayout>
+                </TableLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

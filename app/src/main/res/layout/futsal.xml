@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorBackground">
+<LinearLayout
+    android:id="@+id/image"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="104dp"
+        android:layout_height="107dp"
+        android:layout_gravity="center"
+        android:src="@drawable/futsal" />
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/tvName"
+        style="@style/textStyle"
+        android:layout_toRightOf="@+id/image"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="#000AFF"
+        android:layout_marginStart="20dp"
+        android:hint="Futsal name"/>
+
+    <LinearLayout
+        android:id="@+id/lindec"
+        style="@style/textStyle"
+        android:maxLines="2"
+        android:layout_toRightOf="@+id/image"
+        android:textSize="20sp"
+        android:layout_below="@+id/tvName">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textColor="#000"
+            android:layout_marginStart="20dp"
+            android:textSize="20sp"
+            android:paddingRight="10dp"
+            android:text="District:" />
+
+        <TextView
+            android:id="@+id/tvdist"
+            style="@style/textStyle"
+            android:maxLines="2"
+            android:textSize="20sp"
+            android:hint="District name" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linprice"
+        style="@style/textStyle"
+        android:maxLines="2"
+        android:textSize="20sp"
+        android:layout_below="@+id/lindec"
+        android:layout_toRightOf="@+id/image"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textColor="#000"
+            android:layout_marginStart="20dp"
+            android:textSize="20sp"
+            android:paddingRight="10dp"
+            android:text="Provience:" />
+        <TextView
+            android:id="@+id/tvprov"
+            style="@style/textStyle"
+            android:maxLines="2"
+            android:textSize="20sp"
+            android:layout_alignLeft="@+id/tvName"
+            android:layout_below="@+id/lindec"
+            android:hint="Province"
+            />
+    </LinearLayout>
+</RelativeLayout>
+
+
